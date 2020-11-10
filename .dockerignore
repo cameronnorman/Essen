@@ -1,0 +1,13 @@
+.git
+tmp
+log
+Makefile
+docker-compose.yml
+storage
+vendor
+test
+Dockerfile
+README.md
+bin/update
+bin/spring
+bin/setup

@@ -1,0 +1,13 @@
+<div class="box mt-3">
+  <h1 class="title">Recipes</h1>
+  <p class="subtitle">A list of all available recipes</p>
+  <hr />
+  <% @recipes.each do |recipe| %>
+    <div class="mb-2">
+      <p class="has-text-weight-bold"><%= recipe.title %></p>
+      <p><%= recipe.description[0..200].gsub(/\s\w+\s*$/, '...') %></p>
+      <p><%= link_to "View Recipe", recipe_path(id: recipe.id) %></p>
+    </div>
+    <hr />
+  <% end %>
+</div>

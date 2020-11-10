@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/src/app"
+      - bundle:/bundle
+      - /usr/src/app/tmp
+    env_file: .env
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+    command: 'sh entrypoint.sh'
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: db_password
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  bundle:
+  db:
